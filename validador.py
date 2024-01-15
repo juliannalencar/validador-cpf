@@ -1,4 +1,15 @@
-cpf = input('Digite os numeros CPF: ')	
+import re
+import sys
+
+cpf_usuario = input('Digite os numeros CPF: ')
+cpf = re.sub(r'[^0-9]', '', cpf_usuario)
+
+entrada_sequencial = cpf_usuario == cpf_usuario[0] * len(cpf_usuario)
+
+if entrada_sequencial:
+    print('Você enviou dados sequenciais.')
+    sys.exit()
+
 nove_digitos = cpf[:9]
 contador_regressivo_1 = 10
 
